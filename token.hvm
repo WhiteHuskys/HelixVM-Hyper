@@ -1,0 +1,21 @@
+// Comments like this!
+// 1 - line number identifier (Used for `functions`)
+// We can identify a function by: init($0x000101). The name is not
+// used for calling the function its only used for better 
+// In this case our PUSH keyword does not need to be PUSH1, PUSH2
+// the byte amount is auto calculated when compiling
+start:
+    1 - PUSH 0x01
+    2 - PUSH 0x0001 // The pointer to which we store 0x03 on r1
+    3 - MLOAD 0x03 // Loads value of key 0x03 from storage and moves to r1
+    4 - PUSH 0x01
+    5 - PUSH 0x0001  
+    6 - MOV // Will get key 0x03 onto the stack
+    7 - PUSH 0x000101
+    8 - CALL
+
+init($0x000101):
+    1 - PUSH 0x01
+    2 - ADD
+    4 - PUSH 0x03
+    3 - MSTORE // This adds 1 to the token balance of the key 0x03
